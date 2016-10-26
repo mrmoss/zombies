@@ -1,0 +1,97 @@
+How it was created
+	Spawning System
+	Sound
+	Jumping
+	Drops/Pickups
+	Copyright
+
+
+
+
+Engines
+	Spritelib
+		soil
+		opengl
+	irrKlang
+
+
+
+
+
+Edits to Spritelib
+	spritelib_anim
+		animations
+		buttons
+
+	spritelib_text
+		draw text
+
+
+
+
+Structures
+	Object
+		static Vector Class
+		Constructor
+		Destructor
+		update()
+		draw()
+
+	bool placeMeeting()
+	bool placeMeeting(vector)
+
+
+
+
+
+Classes
+	Player
+	Zombies
+	Barricade
+	etc...
+
+
+
+
+
+Challenging Problems
+	flashing red
+	spawn rates
+	running speed on different computers
+	/(180/pi) not *(180/pi)
+	aligning sprites
+
+
+
+
+
+
+Gameplay
+	Controls-port to gameboy
+	Pickups
+
+
+
+
+
+Bugs
+	Sprites
+	Corrupt sound file
+	repeated names
+	?
+
+
+
+
+
+SVN Issues
+	deleted libraries
+	problems with sprites
+	
+
+
+
+
+Things we wanted to do
+	archive system
+	3d
