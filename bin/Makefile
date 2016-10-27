@@ -14,7 +14,7 @@ FLAGS=-O -Wno-deprecated-declarations -I $(INC_DIR) -L $(LIB_DIR)
 LIBS=
 POSTPROC=
 
-ifeq ($(os),Windows_NT)
+ifeq ($(OS),Windows_NT)
 	#FIGURE OUT WINDOWS
 else
 	ifeq ($(shell uname),Darwin)
