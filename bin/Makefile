@@ -15,7 +15,7 @@ POSTPROC=
 
 ifeq ($(OS),Windows_NT)
 	LIBS+=-lfreeglut -lglu32 -lopengl32 -lirrKlang -static -mwindows
-	FLAGS+=-I $(INC_DIR)/windows -m32
+	FLAGS+=-I $(INC_DIR)/windows -m32 -L $(LIB_DIR)
 else
 	ifeq ($(shell uname),Darwin)
 		LIBS+=-framework OpenGL -framework GLUT -lirrklang
