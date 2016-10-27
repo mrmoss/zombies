@@ -22,7 +22,7 @@ else
 		FLAGS+=-L .
 		POSTPROC=install_name_tool -change /usr/local/lib/libirrklang.dylib libirrklang.dylib $@
 	else
-		LIBS+=-lGL -lGLU -lglut libIrrKlang.so
+		LIBS+=-lGL -lGLU -lglut ./libIrrKlang.so
 		FLAGS+=-L $(LIB_DIR)
 	endif
 endif
