@@ -1,8 +1,8 @@
 #!/bin/bash
 #ubuntu
-#sudo apt-get install libglew-dev freeglut3-dev
+#sudo apt-get install freeglut3-dev
 #mac
-#brew install glew freeglut
+#brew install freeglut
 
 SRC_DIR=../src
 LIB_DIR=../lib
