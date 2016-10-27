@@ -9,7 +9,7 @@ LIB_DIR=../lib
 INC_DIR=../include
 
 COMPILER=g++
-FLAGS=-O -Wno-deprecated-declarations -I $(INC_DIR) -L $(LIB_DIR)
+FLAGS=-O -Wno-deprecated-declarations -I $(INC_DIR)
 LIBS=
 POSTPROC=
 
@@ -19,9 +19,11 @@ ifeq ($(OS),Windows_NT)
 else
 	ifeq ($(shell uname),Darwin)
 		LIBS+=-framework OpenGL -framework GLUT -lirrklang
+		FLAGS+=-L .
 		POSTPROC=install_name_tool -change /usr/local/lib/libirrklang.dylib libirrklang.dylib $@
 	else
 		LIBS+=-lGL -lGLU -lglut libIrrKlang.so
+		FLAGS+=-L $(LIB_DIR)
 	endif
 endif
 
