@@ -82,7 +82,9 @@
 
 #ifndef _MSC_VER
   #ifdef __cplusplus
+  #ifndef __forceinline
   #define __forceinline inline
+  #endif
   #else
   #define __forceinline
   #endif

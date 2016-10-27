@@ -8,20 +8,20 @@ SRC_DIR=../src
 LIB_DIR=../lib
 INC_DIR=../include
 
-
 COMPILER=g++
 FLAGS=-O -Wno-deprecated-declarations -I $(INC_DIR) -L $(LIB_DIR)
 LIBS=
 POSTPROC=
 
 ifeq ($(OS),Windows_NT)
-	#FIGURE OUT WINDOWS
+	LIBS+=-lfreeglut -lglu32 -lopengl32 -lirrKlang -static -mwindows
+	FLAGS+=-I $(INC_DIR)/windows -m32
 else
 	ifeq ($(shell uname),Darwin)
 		LIBS+=-framework OpenGL -framework GLUT -lirrklang
-		POSTPROC=install_name_tool -change /usr/local/lib/libirrklang.dylib $(LIB_DIR)/libirrklang.dylib $@
+		POSTPROC=install_name_tool -change /usr/local/lib/libirrklang.dylib libirrklang.dylib $@
 	else
-		LIBS+=-lGL -lGLU -lglut $(LIB_DIR)/libIrrKlang.so
+		LIBS+=-lGL -lGLU -lglut libIrrKlang.so
 	endif
 endif
 
