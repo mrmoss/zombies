@@ -3,8 +3,6 @@
 #sudo apt-get install libglew-dev freeglut3-dev
 #mac
 #brew install glew freeglut
-#FUCK DYLIBS FUCK THEM TO HELL
-#cp ../lib/libirrklang.dylib /usr/local/lib/libirrklang.dylib
 
 SRC_DIR=../src
 LIB_DIR=../lib
@@ -12,14 +10,16 @@ INC_DIR=../include
 
 
 COMPILER=g++
-FLAGS=-O -Wno-deprecated-declarations -I $(INC_DIR)
+FLAGS=-O -Wno-deprecated-declarations -I $(INC_DIR) -L $(LIB_DIR)
 LIBS=
+POSTPROC=
 
 ifeq ($(os),Windows_NT)
 	#FIGURE OUT WINDOWS
 else
 	ifeq ($(shell uname),Darwin)
-		LIBS+=-framework OpenGL -framework GLUT /usr/local/lib/libirrklang.dylib
+		LIBS+=-framework OpenGL -framework GLUT -lirrklang
+		POSTPROC=install_name_tool -change /usr/local/lib/libirrklang.dylib $(LIB_DIR)/libirrklang.dylib $@
 	else
 		LIBS+=-lGL -lGLU -lglut $(LIB_DIR)/libIrrKlang.so
 	endif
@@ -32,6 +32,7 @@ all: zombies
 
 zombies: $(GAME_SRC) $(GRAPHIC_SRC)
 	$(COMPILER) $^ $(FLAGS) $(LIBS) -o $@
+	$(POSTPROC)
 
 clean:
 	@rm -rf zombies zombies.exe
