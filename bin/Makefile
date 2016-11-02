@@ -1,6 +1,6 @@
 #!/bin/bash
 #ubuntu
-#sudo apt-get install freeglut3-dev
+#sudo apt-get install freeglut3-dev libglu1-mesa-dev
 #mac
 #brew install freeglut
 
